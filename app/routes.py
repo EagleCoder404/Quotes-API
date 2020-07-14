@@ -39,5 +39,5 @@ def get_by_author(author_name,page_number):
 
 @app.route("/api/authors/")
 def authors():
-    q = Quote.query.with_entities(Quote.author).all()
+    q = Quote.query.with_entities(Quote.author).distinct()
     return jsonify({'authors':[x[0] for x in q]})
